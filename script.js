@@ -8,11 +8,7 @@ uctor(pseudo, classe, sante, santeMax, attaque, niveau, xp, xpUp){
         this.classe            = classe;
         this.sante             = Number(sante);
         this.santeMax          = Number(santeMax);
-        this.attaque           = Number(attaque);
-        thisniveau            = 1;
-        this.xp                = 0;
-        this.xpUp              = 150;
-    }
+        this.at
 
     verifierXp() {
         let nouvelthis.xpUp) {
