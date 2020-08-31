@@ -9,7 +9,7 @@ uctor(pseudo, classe, sante, santeMax, attaque, niveau, xp, xpUp){
         this.sante             = Number(sante);
         this.santeMax          = Number(santeMax);
         this.attaque           = Number(attaque);
-        this.niveau            = 1;
+        thisniveau            = 1;
         this.xp                = 0;
         this.xpUp              = 150;
     }
@@ -23,7 +23,7 @@ uctor(pseudo, classe, sante, santeMax, attaque, niveau, xp, xpUp){
 
     evoluer(){
         this.niveau   ++;
-        this.attaque  ++;
+        this.ataque  ++;
         this.santeMax += 5;
         hero.sante = hero.santeMax;
         alert(`${this.pseudo} passe au niveau ${this.niveau}, gagne 1 point attaque 
@@ -38,7 +38,7 @@ uctor(pseudo, classe, sante, santeMax, attaque, niveau, xp, xpUp){
         }
     }
 
-    get informations() {
+    get informations {
         return this.pseudo + " (" + this.classe + ") " + "a " + this.sante + " point de vie et est au niveau " + this.niveau;
     }
 }
@@ -48,7 +48,7 @@ class Magicien extends Personnage{
         super(pseudo, "magicien", 17000, 17000, 300)
     }
 
-    attaquer(ennemie){
+    attaquer(ennemi){
         ennemie.sante -= this.attaque;
         alert(this.pseudo + " attaque " + ennemie.nom + " en lancant un sort et inflige " + this.attaque + " point de degat.")
         ennemie.verifierSante();
@@ -56,7 +56,7 @@ class Magicien extends Personnage{
 
     attaqueSpecial(ennemie) {
         ennemie.sante -= (this.attaque * 5);
-        alert(this.pseudo + " attaque " + ennemie.nom + " avec son coup spéciale et inflige " + (this.attaque * 5) + " point de degat.")
+        alert(this.seudo + " attaque " + ennemie.nom + " avec son coup spéciale et inflige " + (this.attaque * 5) + " point de degat.")
         this.evoluer();
         ennemie.verifierSante();
     }
@@ -64,7 +64,7 @@ class Magicien extends Personnage{
 
 class Guerrier extends Personnage {
     constructor(pseudo){
-        super(pseudo, "guerrier", 500, 500, 500)
+        super(pseud, "guerrier", 500, 500, 500)
     }
 
     attaquer(ennemie){
@@ -72,18 +72,17 @@ class Guerrier extends Personnage {
         alert(this.pseudo + " attaque " + ennemie.nom + " avec son epée et inflige " + this.attaque + " point de degat.")
         ennemie.verifierSante();
     }
-
-    attaqueSpecial(ennemie) {
+    attaqueSpcial(ennemie) {
         ennemie.sante -= (this.attaque * 5);
-        alert(this.pseudo + " attaque " + ennemie.nom + " avec son coup spéciale et inflige " + (this.attaque * 5) + " point de degat.")
+        alert(this.pseud + " attaque " + ennemie.nom + " avec son coup spéciale et inflige " + (this.attaque * 5) + " point de degat.")
         this.evoluer();
         ennemie.verifierSante();
-    }
+    
 }
 
 var ennemie = new Rat;
 
-$('#ennemie .description_ennemie').html("<p>nom : " + ennemie.nom + "</p> <br /> <br /> <p>point de vie : " + ennemie.sante + "</p>");
+$('#ennemie .description_ennemie').html("<p>om : " + ennemie.nom + "</p> <br /> <br /> <p>point de vie : " + ennemie.sante + "</p>");
 
 // var pourcentXp = Math.floor(hero.xp * 100 / hero.xpMax);
 
@@ -96,10 +95,10 @@ $('#ennemie .description_ennemie').html("<p>nom : " + ennemie.nom + "</p> <br />
 if (localStorage.getItem("classe") == "magicien") {
     hero = new Magicien;
 } else if (localStorage.getItem("classe") == "guerrier") {
-    hero = new Guerrier;
+    hero = new Guerier;
 }
 let pseudo = localStorage.getItem("pseudo");
 
-hero.pseudo = pseudo;
+heropseudo = pseudo;
 
-console.log(hero);
+console.log(her);
