@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#ennemie {
+    display: flex;
+    background-color: royalblue;
+    height: 200px;
+}
+
+#ennemie .description_ennemie {
+    display: block;
+    background-color: red;
+    height: auto;
+    width: 300px;
+}
+
+button{
+    width: 140px;
+    height: 50px;
+}
+
+#personnage #barre_xp {
+    position: relative;
+    width: 500px;
+    height: 20px;
+    background-color: slategrey;
+}
+
+#personnage #barre_xp span {
+    position: absolute;
+    height: 20px;
+    width: 0%;
+    background-color: black;
+}

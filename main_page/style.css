@@ -1,0 +1,75 @@
+.click{
+    border: 2px solid lightblue;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: url("images/main_cover.jpg") no-repeat;
+    background-size: cover;
+}
+
+#container h1 {
+    color: rgba(255, 210, 8, 0.774);
+    text-align: center;
+}
+
+form {
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+}
+
+label {
+    display: block;
+    font-size: 1.5em;
+    color: rgba(255, 210, 8, 0.774);
+}
+
+#pseudo {
+    height: 30px;
+}
+
+#guerrier {
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    background-color: rgba(145, 187, 77, 0.801);
+    cursor: pointer;
+    margin: 50px;
+}
+
+#guerrier > span {
+    color: white;
+    font-size: 1.8em;
+}
+
+#magicien {
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    background-color: rgba(145, 187, 77, 0.801);
+    text-align: center;
+    cursor: pointer;
+    margin: 50px;
+}
+
+#magicien > span {
+    color: white;
+    font-size: 1.8em;
+}
+
+#classe {
+    display: flex;
+    justify-content: center;
+}
+
+#submit {
+    width: 70px;
+    height: 40px;
+}

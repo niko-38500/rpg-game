@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" rel="stylesheet" />
+        <title>petit rpg - main</title>
+        <link rel="stylesheet" href="menu.css" />
+    </head>
+
+    <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <div id="personnage">
+        <span><img id="icone_hero" src="#" alt="icone_perso" /></span>
+        <span></span>
+        <span>
+            <p>point de vie : <div id="sante"><span class="barre_sante"></span></div></p><br />
+            <p>point de magie : <div id="magie"><span class="barre_magie"></span></div></p><br />
+        </span>
+        <span><p>inventaire</p><img id="shop" alt="shop" src="../assets/shop.png" /></span>
+            <div id="bouton_burger"><p>menu</p>
+                <div id="menu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+            </div>
+    </div>
+    <div id="menu_tavernier">
+        <div id="bulle">
+            <button id="buy">Acheter</button>
+            <button id="sell">Vendre</button>
+            <button id="upgrade">Ameliorer</button>
+            <a id="fight"><button type ="submit">Combattre</button></a>
+            <span id="fleche"></span>
+        </div>
+        <img id="tavernier" src="../personnage/tavernier.png" alt="tavernier" />
+    </div>
+    <div id="inventory"></div>
+    <script src="../personnage/personnage.js"></script>
+    <script src="menu.js"></script>
+    <script src="item.js"></script>
+    </body>
+</html>
