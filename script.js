@@ -1,22 +1,9 @@
 class Ennemies {
     constructor(nom, sante, attaque, xp){
-        this.nom        = nom;
-        this.sante      = Number(sante)
-        this.attaque    = Number(attaque);
-        this.xp         = Number(xp);
+        thr(xp);
     }
 }
-
-class Rat extends Ennemies{
-    constructor(){
-        super("rat d'egoutant", 400, 40, 50);
-    }
-}
-
-var hero;
-
-class Personnage {
-    constructor(pseudo, classe, sante, santeMax, attaque, niveau, xp, xpUp){
+uctor(pseudo, classe, sante, santeMax, attaque, niveau, xp, xpUp){
         this.pseudo            = pseudo;
         this.classe            = classe;
         this.sante             = Number(sante);
@@ -28,10 +15,7 @@ class Personnage {
     }
 
     verifierXp() {
-        let nouvelleXp = ennemie.xp + this.xp;
-        this.xp = nouvelleXp
-        alert(`vous avez ${this.xp} sur ${this.xpUp} point d'experiance`)
-        if (this.xp >= this.xpUp) {
+        let nouvelthis.xpUp) {
             this.xp = 0;
             hero.evoluer();
         }
