@@ -69,12 +69,11 @@ class Guerrier extends Personnage {
 
     attaquer(ennemie){
         ennemie.sante -= this.attaque;
-        alert(this.pseudo + " attaque " + ennemie.nom + " avec son epée et inflige " + this.attaque + " point de degat.")
-        ennemie.verifierSante();
+        alert(this.pseudo + " attaque " + en
     }
     attaqueSpcial(ennemie) {
         ennemie.sante -= (this.attaque * 5);
-        alert(this.pseud + " attaque " + ennemie.nom + " avec son coup spéciale et inflige " + (this.attaque * 5) + " point de degat.")
+        alert(this.pseud + " attaqe.nom + " avec son coup spéciale et inflige " + (this.attaque * 5) + " point de degat.")
         this.evoluer();
         ennemie.verifierSante();
     
@@ -82,9 +81,9 @@ class Guerrier extends Personnage {
 
 var ennemie = new Rat;
 
-$('#ennemie .description_ennemie').html("<p>om : " + ennemie.nom + "</p> <br /> <br /> <p>point de vie : " + ennemie.sante + "</p>");
+$('#ennemie .description_ennemi<p>om : " + ennemie.nom + "</p> <br /> <br /> <p>point de vie : " + ennemie.sante + "</p>");
 
-// var pourcentXp = Math.floor(hero.xp * 100 / hero.xpMax);
+// var pourcentXp = * 100 / hero.xpMax);
 
 // function progresBar() {
 //     $("#personnage #barre_xp span").css("width", `${pourcentXp}%`);
