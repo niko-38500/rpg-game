@@ -1,3 +1,4 @@
+var hero;
 
 class Personnage {
     constructor(pseudo, classe, sante, santeMax, attaque, magie, magieMax){
@@ -85,4 +86,12 @@ class Guerrier extends Personnage {
         this.evoluer();
         ennemie.verifierSante();
     }
+}
+
+if (localStorage.getItem("classe") == "guerrier") {
+    $("#icone_hero").attr("src", "../personnage/guerrier.png");
+    hero = new Guerrier;
+} else if (localStorage.getItem("classe") == "magicien") {
+    $("#icone_hero").attr("src", "../personnage/mage.png");
+    hero = new Magicien;
 }

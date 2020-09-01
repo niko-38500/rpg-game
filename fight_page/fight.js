@@ -1,16 +1,6 @@
-var hero = JSON.parse(localStorage.getItem("hero"));
-console.log(hero.informations)
+hero.pseudo = localStorage.getItem("pseudo");
 
-if (hero.classe == "guerrier") {
-    $("#icone_hero").attr("src", "../personnage/guerrier.png");
-} else if (hero.classe == "magicien") {
-    $("#icone_hero").attr("src", "../personnage/mage.png");
-}
-
-
-let infoHero = JSON.parse(localStorage.getItem("hero_info"));
-
-$("#personnage span:eq(1)").html(infoHero);
+$("#personnage span:eq(1)").html(hero.informations);
 $("#personnage span:eq(1)").css("margin-top", "12px");
 
 setInterval(function () {
@@ -60,3 +50,5 @@ $("#menu").click(function() {
     hero.sante -= 1;
     localStorage.setItem("hero", JSON.stringify(hero));
 });
+
+var ennemie = new Rat();

@@ -1,13 +1,3 @@
-var hero;
-
-if (localStorage.getItem("classe") == "guerrier") {
-    $("#icone_hero").attr("src", "../personnage/guerrier.png");
-    hero = new Guerrier;
-} else if (localStorage.getItem("classe") == "magicien") {
-    $("#icone_hero").attr("src", "../personnage/mage.png");
-    hero = new Magicien;
-}
-
 hero.pseudo = localStorage.getItem("pseudo");
 
 
@@ -43,4 +33,33 @@ fight.addEventListener("click", function() {
     }
 });
 
+// window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webKitIndexedDB || window.msIndexedDB;
+
+// const request = window.indexedDB.open("offline_db", 1);
+
+// let db;
+
+// request.onupgradeneeded = function(event) {
+//     var db = request.result,
+//     var objectStore = db.createObjectStore( "hero", {keyPath: "pseudo" }),
+//     objectStore.transaction.oncomplete = function(event) {
+//         var heroObjectStore = db.transaction("hero", "readwrite").objectStore('hero');
+//         heroObjectStore.add(hero);
+//     }
+// }
+
+// request.onerror = function(event) {
+//     //  fait quelque chose
+//     console.log("error")
+// }
+
+// request.onsuccess = function(event) {
+//     db = request.result;
+// }
+
+// db.onerror = function(e) {
+//     console.log("error" + e.target.errorCode);
+// }
+
+// var transaction = db.transaction(hero, "readwrite");
 
