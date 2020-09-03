@@ -87,11 +87,3 @@ class Guerrier extends Personnage {
         ennemie.verifierSante();
     }
 }
-
-if (localStorage.getItem("classe") == "guerrier") {
-    $("#icone_hero").attr("src", "../personnage/guerrier.png");
-    hero = new Guerrier;
-} else if (localStorage.getItem("classe") == "magicien") {
-    $("#icone_hero").attr("src", "../personnage/mage.png");
-    hero = new Magicien;
-}

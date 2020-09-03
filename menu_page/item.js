@@ -37,6 +37,7 @@ class Item {
         let itemType = Object.getPrototypeOf(this).constructor.name.toLowerCase();
         document.querySelector("#inventory").appendChild(this.element);
         inventory[itemType].push(this);
+        localStorage.setItem("inventory", JSON.stringify(inventory));
 
         if (Object.getPrototypeOf(this).constructor.name.toLowerCase() != "potion") {
             let equip = this.btnEquip;
@@ -282,12 +283,16 @@ class Armor extends Item {
     var armureDraconique   = new Armor("armure draconique", "armure lourde", 300, "rune", true);
     var armureLegendaire   = new Armor("armure légendaire", "armure moyenne", 500, "rune", true);
 
+    document.querySelector("#buy").addEventListener("click", () => {
+        puissantePotionDeSoin.addInventory();
+        epeeLegendaire.addInventory();
+        hacheLegendaire.addInventory();
+        bouclierLegendaire.addInventory();
+        armureLegendaire.addInventory();
+    });
+// window.addEventListener("load", function () {
+//     for (let i in weapon){
+//         weapon[i].addInventory;
+//     }
+// });
 
-petitePotionDeSoin.addInventory();
-petitePotionDeMagie.addInventory();
-epeeEnBois.addInventory();
-hacheDuDébutant.addInventory(); 
-bouclierEnBois.addInventory(); 
-armureEntrainement.addInventory();
-bouclierEnFer.addInventory();
-armureEnAcier.addInventory();

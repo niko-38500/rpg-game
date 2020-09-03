@@ -1,14 +1,18 @@
-$("#magicien").click(function (){
-    localStorage.setItem("classe", "magicien");
+var hero;
+var pseudo;
+let input = document.querySelector("#pseudo");
+let magicien = document.querySelector("#magicien");
+let guerrier = document.querySelector("#guerrier");
+input.addEventListener("change", () => {
+    pseudo = input.value;
 });
 
-$("#guerrier").click(function (){
-    localStorage.setItem("classe", "guerrier");
+magicien.addEventListener("click", () => {
+    hero = new Magicien(pseudo);
+    localStorage.setItem("hero", JSON.stringify(hero));
 });
 
-
-
-$("#magicien, #guerrier").click(function () {
-    let pseudo = $("#pseudo").val();
-    localStorage.setItem("pseudo", pseudo);
+guerrier.addEventListener("click", () => {
+    hero = new Guerrier(pseudo);
+    localStorage.setItem("hero", JSON.stringify(hero));
 });

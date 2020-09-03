@@ -1,5 +1,13 @@
-hero.pseudo = localStorage.getItem("pseudo");
+var hero = JSON.parse(localStorage.getItem("hero"));
+console.log(hero.classe);
 
+if (hero.classe == "guerrier") {
+    $("#icone_hero").attr("src", "../personnage/guerrier.png");
+    hero = new RecoverGuerrier;
+} else if (hero.classe == "magicien") {
+    $("#icone_hero").attr("src", "../personnage/mage.png");
+    hero = new RecoverMagicien;
+}
 
 $("#personnage span:eq(1)").html(hero.informations);
 $("#personnage span:eq(1)").css("margin-top", "12px");
@@ -12,8 +20,7 @@ setInterval(function () {
     $(".barre_magie").css("width", hero.magie * 100 / hero.magieMax + "%");
 }, 200);
 
-localStorage.setItem("hero", JSON.stringify(hero));
-localStorage.setItem("hero_info", JSON.stringify(hero.informations));
+
 
 $("#menu").click(function () {
     $("#menu_tavernier").slideToggle();
@@ -28,9 +35,10 @@ $("#shop").click(function () {
 let fight = document.querySelector("#fight");
 
 fight.addEventListener("click", function() {
-    if(confirm("voulez vous partir combattre ?")){
-        fight.setAttribute("href", "../fight_page/fight.html")
-    }
+    petitePotionDeMagie.addInventory();
+    // if(confirm("voulez vous partir combattre ?")){
+    //     fight.setAttribute("href", "../fight_page/fight.html")
+    // }
 });
 
 // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webKitIndexedDB || window.msIndexedDB;
