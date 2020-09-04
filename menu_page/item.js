@@ -35,16 +35,17 @@ class Item {
 
     addInventory() {
         let itemType = Object.getPrototypeOf(this).constructor.name.toLowerCase();
+        console.log(this);
         document.querySelector("#inventory").appendChild(this.element);
         inventory[itemType].push(this);
         localStorage.setItem("inventory", JSON.stringify(inventory));
-
+        
         if (Object.getPrototypeOf(this).constructor.name.toLowerCase() != "potion") {
             let equip = this.btnEquip;
             equip.innerHTML = "equiper";
             this.element.appendChild(equip);
             equip.addEventListener("click", () => {
-                if (hero[itemType] == false){
+                if (hero["recover" + itemType] == false){
                     this.equipItem();
                 } else {
                     this.unequipItem();
@@ -70,13 +71,13 @@ class Item {
     equipItem () {
         if (Object.getPrototypeOf(this).constructor.name.toLowerCase() != "potion") {
             if (Object.getPrototypeOf(this).constructor.name.toLowerCase() === "weapon"){
-                if (hero.weapon === false) {
-                    if (hero.shield != false && this.type === "two-handed") {
+                if (hero.recoverweapon === false) {
+                    if (hero.recovershield != false && this.type === "two-handed") {
                         alert("vous ne pouvez pas equiper une arme a deux main quand vous portez un bouclier");
                     } else {
                         hero.attaque += this.value;
-                        hero.weapon = this;
-                        hero.weapon.equiped = true
+                        hero.recoverweapon = this;
+                        hero.recoverweapon.equiped = true
                         this.content.prepend("E  ");
                         this.btnEquip.innerHTML = "desequiper";
                     }
@@ -84,20 +85,20 @@ class Item {
                     // ne rien faire
                 }
             } else if (Object.getPrototypeOf(this).constructor.name.toLowerCase() == "armor") {
-                if (hero.armor === false) {
+                if (hero.recoverarmor === false) {
                     hero.santeMax += this.value;
                     hero.sante += this.value;
-                    hero.armor = this;
-                    hero.armor.equiped = true;
+                    hero.recoverarmor = this;
+                    hero.recoverarmor.equiped = true;
                     this.content.prepend("E  ");
                     this.btnEquip.innerHTML = "desequiper";
                 }
             } else if (Object.getPrototypeOf(this).constructor.name.toLowerCase() == "shield") {
-                if (hero.shield === false && hero.weapon.type != "two-handed"){
+                if (hero.recovershield === false && hero.recoverweapon.type != "two-handed"){
                     hero.santeMax += this.value;
                     hero.sante += this.value;
-                    hero.shield = this;
-                    hero.shield.equiped = true;
+                    hero.recovershield = this;
+                    hero.recovershield.equiped = true;
                     this.content.prepend("E  ");
                     this.btnEquip.innerHTML = "desequiper";
                 } else {
@@ -105,14 +106,16 @@ class Item {
                 }
             }
         }
+        localStorage.setItem("inventory", JSON.stringify(inventory));
     }
 
     unequipItem () {
+        console.log("abc");
         if (Object.getPrototypeOf(this).constructor.name.toLowerCase() == "weapon"){
-            if(hero.weapon === this && hero.weapon.equiped === true) {
+            if(hero.recoverweapon === this && hero.recoverweapon.equiped === true) {
                 hero.attaque -= this.value;
-                hero.weapon.equiped = false;
-                hero.weapon = false;
+                hero.recoverweapon.equiped = false;
+                hero.recoverweapon = false;
                 this.content.innerHTML = this.description;
                 this.btnEquip.innerHTML = "equiper";
             }
@@ -126,15 +129,16 @@ class Item {
                 this.btnEquip.innerHTML = "equiper";
             } 
         } else if (Object.getPrototypeOf(this).constructor.name.toLowerCase() == "shield") {
-            if (hero.shield === this && hero.shield.equiped === true){
+            if (hero.recovershield === this && hero.recovershield.equiped === true){
                 hero.santeMax -= this.value;
                 hero.sante -= this.value;
-                hero.shield.equiped = false;
-                hero.shield = false;
+                hero.recovershield.equiped = false;
+                hero.recovershield = false;
                 this.content.innerHTML = this.description;
                 this.btnEquip.innerHTML = "equiper";
             }
         } 
+        localStorage.setItem("inventory", JSON.stringify(inventory));
     }
         
 }
@@ -282,17 +286,4 @@ class Armor extends Item {
     var armureEnAcier      = new Armor("armure en acier", "armure moyenne", 180, "rune", true);
     var armureDraconique   = new Armor("armure draconique", "armure lourde", 300, "rune", true);
     var armureLegendaire   = new Armor("armure légendaire", "armure moyenne", 500, "rune", true);
-
-    document.querySelector("#buy").addEventListener("click", () => {
-        puissantePotionDeSoin.addInventory();
-        epeeLegendaire.addInventory();
-        hacheLegendaire.addInventory();
-        bouclierLegendaire.addInventory();
-        armureLegendaire.addInventory();
-    });
-// window.addEventListener("load", function () {
-//     for (let i in weapon){
-//         weapon[i].addInventory;
-//     }
-// });
 

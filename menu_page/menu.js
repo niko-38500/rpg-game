@@ -1,5 +1,4 @@
 var hero = JSON.parse(localStorage.getItem("hero"));
-console.log(hero.classe);
 
 if (hero.classe == "guerrier") {
     $("#icone_hero").attr("src", "../personnage/guerrier.png");
@@ -35,39 +34,8 @@ $("#shop").click(function () {
 let fight = document.querySelector("#fight");
 
 fight.addEventListener("click", function() {
-    petitePotionDeMagie.addInventory();
-    // if(confirm("voulez vous partir combattre ?")){
-    //     fight.setAttribute("href", "../fight_page/fight.html")
-    // }
+    if(confirm("voulez vous partir combattre ?")){
+        fight.setAttribute("href", "../fight_page/fight.html")
+    }
 });
-
-// window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webKitIndexedDB || window.msIndexedDB;
-
-// const request = window.indexedDB.open("offline_db", 1);
-
-// let db;
-
-// request.onupgradeneeded = function(event) {
-//     var db = request.result,
-//     var objectStore = db.createObjectStore( "hero", {keyPath: "pseudo" }),
-//     objectStore.transaction.oncomplete = function(event) {
-//         var heroObjectStore = db.transaction("hero", "readwrite").objectStore('hero');
-//         heroObjectStore.add(hero);
-//     }
-// }
-
-// request.onerror = function(event) {
-//     //  fait quelque chose
-//     console.log("error")
-// }
-
-// request.onsuccess = function(event) {
-//     db = request.result;
-// }
-
-// db.onerror = function(e) {
-//     console.log("error" + e.target.errorCode);
-// }
-
-// var transaction = db.transaction(hero, "readwrite");
 
