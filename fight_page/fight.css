@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    text-decoration: none;
 }
 
 /* body {
@@ -104,4 +105,18 @@
     align-items: center;
     font-size: 2em;
     margin-right: 15px;
+}
+
+#ennemie{
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    padding: 50px;
+    margin: 20px;
+    background-color: rgba(202, 148, 77, 0.911);
+    color: black;
+    width: 150px;
+    text-align: center;
 }

@@ -1,5 +1,7 @@
 var hero;
 
+var dialogue = document.querySelector("#boite_de_dialogue");
+
 class Personnage {
     constructor(pseudo, classe, sante, santeMax, attaque, magie, magieMax){
         this.pseudo   = pseudo;
@@ -76,7 +78,7 @@ class Guerrier extends Personnage {
 
     attaquer(ennemie){
         ennemie.sante -= this.attaque;
-        alert(this.pseudo + " attaque " + ennemie.nom + " avec son epée et inflige " + this.attaque + " point de degat.")
+        dialogue.append(this.pseudo + " attaque " + ennemie.nom + " avec son epée et inflige " + this.attaque + " point de degat.")
         ennemie.verifierSante();
     }
 
